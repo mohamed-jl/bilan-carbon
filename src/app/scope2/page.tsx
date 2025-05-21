@@ -3,11 +3,15 @@
 import { useState, ChangeEvent } from "react";
 import Link from "next/link";
 import Scope2Results from "@/components/Scope2Results";
+import useData from "@/utils/data";
 
 type InputArray = string[];
 type SetInputArray = React.Dispatch<React.SetStateAction<InputArray>>;
 
 export default function Scope2() {
+
+    const {setScope2} = useData()
+
     const [tunisInputs, setTunisInputs] = useState<InputArray>(
         Array(4).fill("")
     );
@@ -32,6 +36,12 @@ export default function Scope2() {
 
     const handleCalculate = () => {
        setShowResults(true);
+       const data = {
+            tunis: tunisInputs,
+            sfax: sfaxInputs,
+            sousse: sousseInputs,
+        };
+        setScope2(data); 
     };
 
     const renderInputs = (

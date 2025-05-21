@@ -3,6 +3,7 @@
 import { useState, ChangeEvent } from 'react';
 import Link from 'next/link';
 import Scope3Results from '@/components/Scope3Results';
+import useData from '@/utils/data';
 
 type InputArray = string[];
 type SetInputArray = React.Dispatch<React.SetStateAction<InputArray>>;
@@ -20,6 +21,9 @@ const getUnit = (index: number): string => {
 };
 
 export default function Scope3() {
+
+    const {setScope3} = useData()
+
     const [tunisInputs, setTunisInputs] = useState<InputArray>(Array(28).fill(''));
     const [sfaxInputs, setSfaxInputs] = useState<InputArray>(Array(28).fill(''));
     const [sousseInputs, setSousseInputs] = useState<InputArray>(Array(28).fill(''));
@@ -40,6 +44,12 @@ export default function Scope3() {
 
     const handleCalculate = () => {
         setShowResults(true);
+        const data = {
+            tunis: tunisInputs,
+            sfax: sfaxInputs,
+            sousse: sousseInputs,
+        };
+        setScope3(data);
     };
 
     const renderInputs = (

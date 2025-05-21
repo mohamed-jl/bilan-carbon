@@ -20,7 +20,7 @@ export default function ResultRow({ data, scope }: { data: any; scope: number })
     return (
         <div className="flex flex-col items-centre gap-5 p-5">
             {results.map((val: number, index: number) => (
-                <p className="text-gray-700">{val}</p>
+                <p className="text-gray-700" key={index}>{val}</p>
             ))}
         </div>
     );

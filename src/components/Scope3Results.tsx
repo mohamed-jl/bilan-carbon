@@ -2,10 +2,14 @@ import ResultRow from "./ResultRow";
 import total from "@/utils/totalEmission";
 import partitions from "@/utils/partitions";
 import DonutChart from "./Donut";
+import Link from "next/link";
 
 export default function Scope3Results({ data }: { data: any }) {
     return (
-        <div>
+        <div className="flex flex-col items-center justify-center w-full h-fit">
+            <p className="text-3xl font-bold text-green-900">
+                Resultat Scope 3
+            </p>
             <div className="flex  items-center justify-center gap-5 p-5">
                 <div className="flex flex-col gap-5 p-5">
                     <p>Transport par avion</p>
@@ -46,27 +50,38 @@ export default function Scope3Results({ data }: { data: any }) {
                 <ResultRow data={data.sfax} scope={3} />
                 <ResultRow data={data.sousse} scope={3} />
             </div>
-            <div className="flex flex-col items-center justify-center p-5">
-                <div className="flex">
-                    <p className="p-5 border w-36 text-center">Tunis</p>
-                    <p className="p-5 border w-36 text-center">sousse</p>
-                    <p className="p-5 border w-36 text-center">sfax</p>
+            <div className="flex">
+                <div className="flex flex-col items-center justify-center p-5">
+                    <div className="flex">
+                        <p className="p-5 border w-36 text-center">Tunis</p>
+                        <p className="p-5 border w-36 text-center">sousse</p>
+                        <p className="p-5 border w-36 text-center">sfax</p>
+                    </div>
+                    <div className="flex">
+                        <p className="p-5 border w-36 text-center">
+                            {total(data.tunis, 3)} /kgCO2e
+                        </p>
+                        <p className="p-5 border w-36 text-center">
+                            {total(data.sousse, 3)} /kgCO2e
+                        </p>
+                        <p className="p-5 border w-36 text-center">
+                            {total(data.sfax, 3)} /kgCO2e
+                        </p>
+                    </div>
                 </div>
-                <div className="flex">
-                    <p className="p-5 border w-36 text-center">
-                        {total(data.tunis, 3)} /kgCO2e
-                    </p>
-                    <p className="p-5 border w-36 text-center">
-                        {total(data.sousse, 3)} /kgCO2e
-                    </p>
-                    <p className="p-5 border w-36 text-center">
-                        {total(data.sfax, 3)} /kgCO2e
-                    </p>
+                <div className="p-5">
+                    <DonutChart
+                        fractions={partitions(
+                            total(data.tunis, 3),
+                            total(data.sousse, 3),
+                            total(data.sfax, 3)
+                        )}
+                    />
                 </div>
             </div>
-            <div className="p-5">
-                    <DonutChart fractions={partitions(total(data.tunis, 3), total(data.sousse, 3), total(data.sfax, 3))} />
-                </div>
+            <Link href={"/form"} className="text-center self-center p-3 bg-green-900 text-white rounded-lg">
+                passer au resume
+            </Link>
         </div>
     );
 }
