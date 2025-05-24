@@ -6,12 +6,16 @@ import Link from "next/link";
 export default function ({ title, num }: { title: string; num: number }) {
   const { scopes } = useData();
 
+  if (!scopes) {
+    return <div className="p-5 text-3xl text-green-900">data not available</div>;
+  }
+
   const isDone =
     num === 1
-      ? scopes.socope1.isDone
+      ? scopes?.scope1.isDone
       : num === 2
-      ? scopes.socope2.isDone
-      : scopes.socope3.isDone;
+      ? scopes?.scope2.isDone
+      : scopes?.scope3.isDone;
 
   const isDoneClass = isDone ? "bg-green-900" : "bg-white";
 

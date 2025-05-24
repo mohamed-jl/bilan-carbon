@@ -79,7 +79,7 @@ export default function Scope3Results({ data }: { data: any }) {
                     />
                 </div>
             </div>
-            <Link href={"/form"} className="text-center self-center p-3 bg-green-900 text-white rounded-lg">
+            <Link href={"/bilan"} className="text-center self-center p-3 bg-green-900 text-white rounded-lg">
                 passer au resume
             </Link>
         </div>
