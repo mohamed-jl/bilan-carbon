@@ -62,7 +62,7 @@ export default function Scope2() {
                         className="bg-gray-300 placeholder-gray-500"
                     />
                     <span className="text-gray-500 absolute right-1 top">
-                        / {index > 1 ? "m3" : "KWh"}
+                         {index > 1 ? "m3" : "KWh"}
                     </span>
                 </div>
             ))}

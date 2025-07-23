@@ -70,7 +70,7 @@ export default function Scope3() {
                         className="bg-gray-300 placeholder-gray-500"
                     />
                     <span className="text-gray-500 absolute right-1 top">
-                        / {getUnit(index)}
+                         {getUnit(index)}
                     </span>
                 </div>
             ))}

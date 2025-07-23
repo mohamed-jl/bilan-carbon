@@ -63,7 +63,7 @@ export default function Scope1() {
                         className="bg-gray-300 placeholder-gray-500"
                     />
                     <span className="text-gray-500 absolute right-1 top">
-                        / {index > 3 ? "Kg" : "L"}
+                         {index > 3 ? "Kg" : "L"}
                     </span>
                 </div>
             ))}
