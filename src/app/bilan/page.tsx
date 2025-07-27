@@ -16,7 +16,8 @@ export default function () {
     const total = (arr: any) => (Array.isArray(arr) ? arr.reduce((acc: number, val: number) => acc + Number(val || 0), 0) : 0);
 
     return (
-        <div className="flex flex-col items-center">
+        <div style={{backgroundImage: "url('/images/1.jpg')", backgroundSize: 'cover'}}>
+        <div className="flex flex-col items-center bg-white/50 h-screen font-bold" >
             <p className="text-green-900 text-center text-5xl font-bold m-6">
                 Bilan Carbone TIC
             </p>
@@ -68,6 +69,7 @@ export default function () {
                     )}
                 />
             </div>
+        </div>
         </div>
     );
 }

@@ -23,15 +23,15 @@ export default function ({ title, num }: { title: string; num: number }) {
 
   return (
     <div
-      className={`p-10 m-6 flex items-center justify-between gap-8 flex-col shadow w-[300px] h-[300px] ${isDoneClass} rounded-2xl`}
+      className={`p-10 m-6 flex items-center justify-between gap-8 flex-col shadow w-[300px] h-[300px] bg-white/75 ${isDoneClass} rounded-2xl`}
     >
-      <p>{title}</p>
+      <p className="text-lg text-center">{title}</p>
       <Link href={`/scope${num}`}>
         <button
-          className="bg-green-900 w-36 h-18 text-white rounded-lg text-2xl"
+          className="bg-green-900 w-50 h-18 text-white rounded-lg text-2xl"
           disabled={isDone}
         >
-          scope {num}
+          Calcul du scope {num}
         </button>
       </Link>
     </div>

@@ -49,8 +49,8 @@ export default function Scope2() {
         values: InputArray,
         setter: SetInputArray
     ) => (
-        <div className="w-fit h-fit flex flex-col items-start p-5 gap-5">
-            <p>{city}</p>
+        <div className="w-fit h-fit flex flex-col items-center p-5 gap-5">
+            <p className="font-bold">données de TIC {city}</p>
             {values.map((val, index) => (
                 <div key={index} className="flex items-center gap-2 relative">
                     <input
@@ -80,18 +80,19 @@ export default function Scope2() {
                             sousse: sousseInputs,
                         }} />
                 </>):(
-                <div className="w-full h-screen flex flex-col justify-start items-center gap-8">
+                    <div style={{ backgroundImage: "url('/images/2.jpg')", backgroundSize: "cover" }} >
+                <div className="w-full h-screen flex flex-col justify-start items-center gap-8 bg-white/50">
                     <Link href="/form" className="self-start p-2">
                         return to scopes
                     </Link>
-                    <p className="text-5xl">Scope 2</p>
+                    <p className="text-5xl">Veuillez saisir les données liées au scope 2</p>
                     <div className="w-full h-fit flex justify-center items-center">
                         <div className="w-fit h-fit flex flex-col items-start p-5 gap-5">
                             <p className="text-white">....</p>
-                            <p>Consommation d'electricite entreprise</p>
-                            <p>Consommation d'electricite maison TIC</p>
-                            <p>Consommation d'eau entreprise</p>
-                            <p>Consommation d'eau maison TIC</p>
+                            <p className="font-bold">Consommation d'electricite entreprise</p>
+                            <p className="font-bold">Consommation d'electricite maison TIC</p>
+                            <p className="font-bold">Consommation d'eau entreprise</p>
+                            <p className="font-bold">Consommation d'eau maison TIC</p>
                         </div>
 
                         {renderInputs("Tunis", tunisInputs, setTunisInputs)}
@@ -104,6 +105,7 @@ export default function Scope2() {
                         className="bg-green-900 text-white w-36 h-12 text-2xl rounded-lg">
                         Calculer
                     </button>
+                </div>
                 </div>)
             }
         </>

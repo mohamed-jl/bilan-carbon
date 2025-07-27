@@ -1,6 +1,6 @@
 
 export const scope1Factors = [2.31, 2.68, 2.68, 2.68, 1920, 1920, 1760];
 
-export const scope2Factors = [0.58, 0.58, 0.13, 0.13];
+export const scope2Factors = [0.58, 0.58, 0.13, 0.13 ];
 
 export const scope3Factors = [0.15, 0.16, 2.68, 2.31, 2.901, 2.901, 1.1, 2.38, 1.3, 2.9, 2.5, 0, 6, 7, 10, 3.5, 2, 2.5, 4, 2.5, 9, 4, 2, 5, 2, 0, 35, 1.8]

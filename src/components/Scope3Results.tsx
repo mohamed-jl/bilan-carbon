@@ -6,9 +6,10 @@ import Link from "next/link";
 
 export default function Scope3Results({ data }: { data: any }) {
     return (
-        <div className="flex flex-col items-center justify-center w-full h-fit">
+        <div style={{ backgroundImage: "url('/images/3.jpg')", backgroundSize: 'cover' }}>
+        <div className="flex flex-col items-center justify-center w-full h-fit bg-white/50 font-bold">
             <p className="text-3xl font-bold text-green-900">
-                Resultat Scope 3
+                Resultat de calcul du Scope 3
             </p>
             <div className="flex  items-center justify-center gap-5 p-5">
                 <div className="flex flex-col gap-5 p-5">
@@ -53,18 +54,18 @@ export default function Scope3Results({ data }: { data: any }) {
             <div className="flex">
                 <div className="flex flex-col items-center justify-center p-5">
                     <div className="flex">
-                        <p className="p-5 border w-36 text-center">Tunis</p>
-                        <p className="p-5 border w-36 text-center">sousse</p>
-                        <p className="p-5 border w-36 text-center">sfax</p>
+                        <p className="p-5 border w-48 text-center">Emission TIC Tunis</p>
+                        <p className="p-5 border w-48 text-center">Emission TIC sousse</p>
+                        <p className="p-5 border w-48 text-center">Emission TIC sfax</p>
                     </div>
                     <div className="flex">
-                        <p className="p-5 border w-36 text-center">
+                        <p className="p-5 border w-48 text-center">
                             {total(data.tunis, 3)} /kgCO2e
                         </p>
-                        <p className="p-5 border w-36 text-center">
+                        <p className="p-5 border w-48 text-center">
                             {total(data.sousse, 3)} /kgCO2e
                         </p>
-                        <p className="p-5 border w-36 text-center">
+                        <p className="p-5 border w-48 text-center">
                             {total(data.sfax, 3)} /kgCO2e
                         </p>
                     </div>
@@ -82,6 +83,7 @@ export default function Scope3Results({ data }: { data: any }) {
             <Link href={"/bilan"} className="text-center self-center p-3 bg-green-900 text-white rounded-lg">
                 passer au resume
             </Link>
+        </div>
         </div>
     );
 }

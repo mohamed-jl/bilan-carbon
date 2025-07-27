@@ -31,7 +31,7 @@ export default function EmissionsTable() {
         safeSum(scopes.scope3.data.sousse);
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col" >
             <div className="flex">
                 <div className="px-3 py-2 text-center w-64"></div>
                 <div className="px-3 py-2 text-center border border-green-900 w-24">Tunis</div>
@@ -43,13 +43,13 @@ export default function EmissionsTable() {
             <div className="flex">
                 <div className="px-3 py-2 text-center border border-green-900 w-64">Emission CO2e Scope 1</div>
                 <div className="px-3 py-2 text-center border border-green-900 w-24">
-                    {safeSum(scopes.scope1.data.tunis) || 'N/A'}
+                    {safeSum(scopes.scope1.data.tunis) || '0'}
                 </div>
                 <div className="px-3 py-2 text-center border border-green-900 w-24">
-                    {safeSum(scopes.scope1.data.sfax) || 'N/A'}
+                    {safeSum(scopes.scope1.data.sfax) || '0'}
                 </div>
                 <div className="px-3 py-2 text-center border border-green-900 w-24">
-                    {safeSum(scopes.scope1.data.sousse) || 'N/A'}
+                    {safeSum(scopes.scope1.data.sousse) || '0'}
                 </div>
             </div>
 
@@ -57,13 +57,13 @@ export default function EmissionsTable() {
             <div className="flex">
                 <div className="px-3 py-2 text-center border border-green-900 w-64">Emission CO2e Scope 2</div>
                 <div className="px-3 py-2 text-center border border-green-900 w-24">
-                    {safeSum(scopes.scope2.data.tunis) || 'N/A'}
+                    {safeSum(scopes.scope2.data.tunis) || '0'}
                 </div>
                 <div className="px-3 py-2 text-center border border-green-900 w-24">
-                    {safeSum(scopes.scope2.data.sfax) || 'N/A'}
+                    {safeSum(scopes.scope2.data.sfax) || '0'}
                 </div>
                 <div className="px-3 py-2 text-center border border-green-900 w-24">
-                    {safeSum(scopes.scope2.data.sousse) || 'N/A'}
+                    {safeSum(scopes.scope2.data.sousse) || '0'}
                 </div>
             </div>
 
@@ -71,13 +71,13 @@ export default function EmissionsTable() {
             <div className="flex">
                 <div className="px-3 py-2 text-center border border-green-900 w-64">Emission CO2e Scope 3</div>
                 <div className="px-3 py-2 text-center border border-green-900 w-24">
-                    {safeSum(scopes.scope3.data.tunis) || 'N/A'}
+                    {safeSum(scopes.scope3.data.tunis) || '0'}
                 </div>
                 <div className="px-3 py-2 text-center border border-green-900 w-24">
-                    {safeSum(scopes.scope3.data.sfax) || 'N/A'}
+                    {safeSum(scopes.scope3.data.sfax) || '0'}
                 </div>
                 <div className="px-3 py-2 text-center border border-green-900 w-24">
-                    {safeSum(scopes.scope3.data.sousse) || 'N/A'}
+                    {safeSum(scopes.scope3.data.sousse) || '0'}
                 </div>
             </div>
 
