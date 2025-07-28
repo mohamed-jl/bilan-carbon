@@ -3,91 +3,113 @@
 import useData from '@/utils/data';
 
 export default function EmissionsTable() {
-    const { scopes } = useData();
+  const { scopes } = useData();
 
-    const safeSum = (arr: any[] | undefined) => {
-        return Array.isArray(arr)
-            ? arr.reduce((acc, val) => acc + Number(val || 0), 0)
-            : 0;
-    };
+  const safeSum = (arr: any[] | undefined) => {
+    return Array.isArray(arr)
+      ? arr.reduce((acc, val) => acc + Number(val || 0), 0)
+      : 0;
+  };
 
-    if (!scopes || !scopes.scope1 || !scopes.scope2 || !scopes.scope3) {
-        return <div className="p-5 text-3xl text-green-900">data not available</div>;
-    }
+  if (!scopes || !scopes.scope1 || !scopes.scope2 || !scopes.scope3) {
+    return <div className="p-5 text-3xl text-green-900">data not available</div>;
+  }
 
-    const totalTunis =
-        safeSum(scopes.scope1.data.tunis) +
-        safeSum(scopes.scope2.data.tunis) +
-        safeSum(scopes.scope3.data.tunis);
+  const totalTunis =
+    safeSum(scopes.scope1.data.tunis) +
+    safeSum(scopes.scope2.data.tunis) +
+    safeSum(scopes.scope3.data.tunis);
 
-    const totalSfax =
-        safeSum(scopes.scope1.data.sfax) +
-        safeSum(scopes.scope2.data.sfax) +
-        safeSum(scopes.scope3.data.sfax);
+  const totalSfax =
+    safeSum(scopes.scope1.data.sfax) +
+    safeSum(scopes.scope2.data.sfax) +
+    safeSum(scopes.scope3.data.sfax);
 
-    const totalSousse =
-        safeSum(scopes.scope1.data.sousse) +
-        safeSum(scopes.scope2.data.sousse) +
-        safeSum(scopes.scope3.data.sousse);
+  const totalSousse =
+    safeSum(scopes.scope1.data.sousse) +
+    safeSum(scopes.scope2.data.sousse) +
+    safeSum(scopes.scope3.data.sousse);
 
-    return (
-        <div className="flex flex-col" >
-            <div className="flex">
-                <div className="px-3 py-2 text-center w-64"></div>
-                <div className="px-3 py-2 text-center border border-green-900 w-24">Tunis</div>
-                <div className="px-3 py-2 text-center border border-green-900 w-24">Sfax</div>
-                <div className="px-3 py-2 text-center border border-green-900 w-24">Sousse</div>
-            </div>
-
-            {/* Scope 1 */}
-            <div className="flex">
-                <div className="px-3 py-2 text-center border border-green-900 w-64">Emission CO2e Scope 1</div>
-                <div className="px-3 py-2 text-center border border-green-900 w-24">
-                    {safeSum(scopes.scope1.data.tunis) || '0'}
-                </div>
-                <div className="px-3 py-2 text-center border border-green-900 w-24">
-                    {safeSum(scopes.scope1.data.sfax) || '0'}
-                </div>
-                <div className="px-3 py-2 text-center border border-green-900 w-24">
-                    {safeSum(scopes.scope1.data.sousse) || '0'}
-                </div>
-            </div>
-
-            {/* Scope 2 */}
-            <div className="flex">
-                <div className="px-3 py-2 text-center border border-green-900 w-64">Emission CO2e Scope 2</div>
-                <div className="px-3 py-2 text-center border border-green-900 w-24">
-                    {safeSum(scopes.scope2.data.tunis) || '0'}
-                </div>
-                <div className="px-3 py-2 text-center border border-green-900 w-24">
-                    {safeSum(scopes.scope2.data.sfax) || '0'}
-                </div>
-                <div className="px-3 py-2 text-center border border-green-900 w-24">
-                    {safeSum(scopes.scope2.data.sousse) || '0'}
-                </div>
-            </div>
-
-            {/* Scope 3 */}
-            <div className="flex">
-                <div className="px-3 py-2 text-center border border-green-900 w-64">Emission CO2e Scope 3</div>
-                <div className="px-3 py-2 text-center border border-green-900 w-24">
-                    {safeSum(scopes.scope3.data.tunis) || '0'}
-                </div>
-                <div className="px-3 py-2 text-center border border-green-900 w-24">
-                    {safeSum(scopes.scope3.data.sfax) || '0'}
-                </div>
-                <div className="px-3 py-2 text-center border border-green-900 w-24">
-                    {safeSum(scopes.scope3.data.sousse) || '0'}
-                </div>
-            </div>
-
-            {/* Global Total */}
-            <div className="flex">
-                <div className="px-3 py-2 text-center border border-green-900 w-64">Emission Global</div>
-                <div className="px-3 py-2 text-center border border-green-900 w-24">{totalTunis}</div>
-                <div className="px-3 py-2 text-center border border-green-900 w-24">{totalSfax}</div>
-                <div className="px-3 py-2 text-center border border-green-900 w-24">{totalSousse}</div>
-            </div>
-        </div>
-    );
+  return (
+    <div className=" flex flex-row items-center gap-5 mt-12">
+        <p className='text-lg p-6 text-gray-800 w-150'>Ce tableau présente la répartition des émissions de dioxyde de carbone par scope et par site. Il indique les quantités, exprimées en tonnes équivalent CO₂ (tCO₂e), générées par les différents sites de la société Technique inspection et contrôle : Tunis, Sfax et Sousse,  selon les trois scopes définis dans le cadre du bilan carbone.</p>
+      <table className="table-fixed border-collapse border-2 border-green-900 w-auto font-bold bg-white/70">
+        <thead>
+          <tr>
+            <th className="border-2 border-green-900 w-64 px-3 py-2 text-center">
+              Catégories
+            </th>
+            <th className="border-2 border-green-900 w-48 px-3 py-2 text-center">
+              Quantité d'émission en tCO₂e - Tunis
+            </th>
+            <th className="border-2 border-green-900 w-48 px-3 py-2 text-center">
+              Quantité d'émission en tCO₂e - Sfax
+            </th>
+            <th className="border-2 border-green-900 w-48 px-3 py-2 text-center">
+              Quantité d'émission en tCO₂e - Sousse
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="border-2 border-green-900 px-3 py-2 text-center">
+              Résultat du Scope 1
+            </td>
+            <td className="border-2 border-green-900 px-3 py-2 text-center">
+              {safeSum(scopes.scope1.data.tunis) || '0'}
+            </td>
+            <td className="border-2 border-green-900 px-3 py-2 text-center">
+              {safeSum(scopes.scope1.data.sfax) || '0'}
+            </td>
+            <td className="border-2 border-green-900 px-3 py-2 text-center">
+              {safeSum(scopes.scope1.data.sousse) || '0'}
+            </td>
+          </tr>
+          <tr>
+            <td className="border-2 border-green-900 px-3 py-2 text-center">
+              Résultat du Scope 2
+            </td>
+            <td className="border-2 border-green-900 px-3 py-2 text-center">
+              {safeSum(scopes.scope2.data.tunis) || '0'}
+            </td>
+            <td className="border-2 border-green-900 px-3 py-2 text-center">
+              {safeSum(scopes.scope2.data.sfax) || '0'}
+            </td>
+            <td className="border-2 border-green-900 px-3 py-2 text-center">
+              {safeSum(scopes.scope2.data.sousse) || '0'}
+            </td>
+          </tr>
+          <tr>
+            <td className="border-2 border-green-900 px-3 py-2 text-center">
+              Résultat du Scope 3
+            </td>
+            <td className="border-2 border-green-900 px-3 py-2 text-center">
+              {safeSum(scopes.scope3.data.tunis) || '0'}
+            </td>
+            <td className="border-2 border-green-900 px-3 py-2 text-center">
+              {safeSum(scopes.scope3.data.sfax) || '0'}
+            </td>
+            <td className="border-2 border-green-900 px-3 py-2 text-center">
+              {safeSum(scopes.scope3.data.sousse) || '0'}
+            </td>
+          </tr>
+          <tr>
+            <td className="border-2 border-green-900 px-3 py-2 text-center">
+              Résultat Global
+            </td>
+            <td className="border-2 border-green-900 px-3 py-2 text-center">
+              {totalTunis}
+            </td>
+            <td className="border-2 border-green-900 px-3 py-2 text-center">
+              {totalSfax}
+            </td>
+            <td className="border-2 border-green-900 px-3 py-2 text-center">
+              {totalSousse}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+  );
 }

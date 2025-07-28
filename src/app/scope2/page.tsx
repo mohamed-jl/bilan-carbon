@@ -4,6 +4,7 @@ import { useState, ChangeEvent } from "react";
 import Link from "next/link";
 import Scope2Results from "@/components/Scope2Results";
 import useData from "@/utils/data";
+import Navbar from "@/components/Navbar";
 
 type InputArray = string[];
 type SetInputArray = React.Dispatch<React.SetStateAction<InputArray>>;
@@ -71,6 +72,7 @@ export default function Scope2() {
 
     return (
         <>
+        <Navbar />
             {
                 showResults ? (<>
                     <Scope2Results

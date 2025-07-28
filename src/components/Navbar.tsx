@@ -9,17 +9,17 @@ export default function Navbar() {
                     <Link href='/' className='text-2xl  text-blue-900'>
                         Accueil
                     </Link>
-                    <Link href='/apropos' className='text-2xl text-blue-900 hover:text-blue-700'>
-                        A propos
-                    </Link>
 
                     <Link href='/calcule' className='text-2xl text-blue-900 hover:text-blue-700'>
-                        Calculer
+                        Calculateur
                     </Link>
                     <Link href='/methodologie' className='text-2xl text-blue-900 hover:text-blue-700'>
                         Methodologie
                     </Link>
                     <Link href='/apropos' className='text-2xl text-blue-900 hover:text-blue-700'>
+                        A propos
+                    </Link>
+                    <Link href='/faq' className='text-2xl text-blue-900 hover:text-blue-700'>
                         FAQ
                     </Link>
                 </div>

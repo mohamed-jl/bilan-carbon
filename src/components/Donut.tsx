@@ -6,7 +6,7 @@ import {
   Tooltip,
   Legend,
   ChartOptions,
-  ChartData
+  ChartData,
 } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import React from 'react';
@@ -24,6 +24,8 @@ const DonutChart: React.FC<DonutChartProps> = ({
   labels = ['Tunis', 'Sfax', 'Sousse'],
   colors = ['#4ade80', '#60a5fa', '#facc15'], // green, blue, yellow
 }) => {
+  const total = fractions.reduce((sum, val) => sum + val, 0);
+
   const data: ChartData<'doughnut'> = {
     labels,
     datasets: [
@@ -42,7 +44,15 @@ const DonutChart: React.FC<DonutChartProps> = ({
         position: 'bottom' as const,
       },
       tooltip: {
-        enabled: true,
+        callbacks: {
+          label: function (tooltipItem) {
+            const dataset = tooltipItem.dataset;
+            const currentValue = dataset.data[tooltipItem.dataIndex] as number;
+            const percentage = ((currentValue / total) * 100).toFixed(1);
+            const label = data.labels?.[tooltipItem.dataIndex] || '';
+            return `${label}: ${percentage}%`;
+          },
+        },
       },
     },
     cutout: '70%', // makes it a donut

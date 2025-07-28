@@ -4,6 +4,7 @@ import { useState, ChangeEvent } from "react";
 import Link from "next/link";
 import Scope3Results from "@/components/Scope3Results";
 import useData from "@/utils/data";
+import Navbar from "@/components/Navbar";
 
 type InputArray = string[];
 type SetInputArray = React.Dispatch<React.SetStateAction<InputArray>>;
@@ -61,6 +62,7 @@ export default function Scope3() {
 
     return (
         <>
+        <Navbar />
             {showResults ? (
                 <Scope3Results
                     data={{

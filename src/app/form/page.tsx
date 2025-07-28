@@ -1,6 +1,7 @@
 'use client'
 
 import Category from "@/components/Category";
+import Navbar from "@/components/Navbar";
 import useData from "@/utils/data";
 
 export default function form() {
@@ -13,6 +14,8 @@ export default function form() {
     }
 
     return (
+        <>
+        <Navbar />
         <div className="w-full h-screen flex flex-col justify-center items-center" style={{backgroundImage: "url('/images/grass.jpg')", backgroundSize: 'cover'}}>
             <div className="flex flex-col h-[400px] items-center gap-8 ">
                 <div className="w-full h-screen flex justify-center items-center ">
@@ -23,5 +26,6 @@ export default function form() {
             </div>
             <button onClick={handleReset} className="px-3 py-2 bg-green-900 text-white rounded-lg m-7">reset data</button>
         </div>
+        </>
     );
 }
