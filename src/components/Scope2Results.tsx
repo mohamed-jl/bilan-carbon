@@ -13,15 +13,17 @@ export default function Scope2Results({ data }: { data: any }) {
             </p>
             <div className="flex  items-center justify-center gap-5 p-5">
                 <div className="flex flex-col gap-5 p-5">
+                                            <p className="h-12 flex items-center">Categorie </p>
+
                     <p>Consommation d'electricite entreprise</p>
                     <p>Consommation d'electricite maison TIC</p>
                     <p>Consommation d'eau entreprise</p>
                     <p>Consommation d'eau maison TIC</p>
                 </div>
 
-                <ResultRow data={data.tunis} scope={2} />
-                <ResultRow data={data.sfax} scope={2} />
-                <ResultRow data={data.sousse} scope={2} />
+                <ResultRow data={data.tunis} scope={2} city='Tunis'/>
+                <ResultRow data={data.sfax} scope={2} city='Sfax'/>
+                <ResultRow data={data.sousse} scope={2} city='Sousse'/>
             </div>
             <div className="flex">
                 <div className="flex flex-col items-center justify-center p-5">
@@ -32,13 +34,13 @@ export default function Scope2Results({ data }: { data: any }) {
                     </div>
                     <div className="flex">
                         <p className="p-5 border w-48 text-center">
-                            {(total(data.tunis, 2).toFixed(2))} /kgCO2e
+                            {(total(data.tunis, 2).toFixed(2))} kgCO2e
                         </p>
                         <p className="p-5 border w-48 text-center">
-                            {(total(data.sousse, 2).toFixed(2))} /kgCO2e
+                            {(total(data.sousse, 2).toFixed(2))} kgCO2e
                         </p>
                         <p className="p-5 border w-48 text-center">
-                            {(total(data.sfax, 2))} /kgCO2e
+                            {(total(data.sfax, 2))} kgCO2e
                         </p>
                     </div>
                 </div>
@@ -46,8 +48,8 @@ export default function Scope2Results({ data }: { data: any }) {
                     <DonutChart
                         fractions={partitions(
                             total(data.tunis, 2),
+                            total(data.sfax, 2),
                             total(data.sousse, 2),
-                            total(data.sfax, 2)
                         )}
                     />
                 </div>

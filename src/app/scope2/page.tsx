@@ -104,7 +104,7 @@ export default function Scope2() {
 
                     <button
                         onClick={handleCalculate}
-                        className="bg-green-900 text-white w-36 h-12 text-2xl rounded-lg">
+                        className="bg-green-900 text-white w-36 h-12 text-2xl rounded-lg no-print">
                         Calculer
                     </button>
                 </div>

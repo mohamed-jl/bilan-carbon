@@ -116,7 +116,7 @@ export default function Scope3() {
                             {renderInputs("Sousse", sousseInputs, setSousseInputs)}
                         </div>
 
-                        <button onClick={handleCalculate} className='bg-green-900 text-white w-36 h-12 text-2xl rounded-lg'>
+                        <button onClick={handleCalculate} className='bg-green-900 text-white w-36 h-12 text-2xl rounded-lg no-print'>
                             Calculer
                         </button>
                     </div>

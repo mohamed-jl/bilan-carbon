@@ -3,32 +3,32 @@
 import useData from '@/utils/data';
 
 export default function EmissionsTable() {
-  const { scopes } = useData();
+  const { scopes , results} = useData();
 
   const safeSum = (arr: any[] | undefined) => {
     return Array.isArray(arr)
-      ? arr.reduce((acc, val) => acc + Number(val || 0), 0)
+      ? (arr.reduce((acc, val) => acc + Number(val || 0), 0) / 1000)
       : 0;
   };
 
-  if (!scopes || !scopes.scope1 || !scopes.scope2 || !scopes.scope3) {
+  if (!results || !results.scope1 || !results.scope2 || !results.scope3) {
     return <div className="p-5 text-3xl text-green-900">data not available</div>;
   }
 
   const totalTunis =
-    safeSum(scopes.scope1.data.tunis) +
-    safeSum(scopes.scope2.data.tunis) +
-    safeSum(scopes.scope3.data.tunis);
+    Number(safeSum(results.scope1.data.tunis)) +
+    Number(safeSum(results.scope2.data.tunis)) +
+    Number(safeSum(results.scope3.data.tunis));
 
   const totalSfax =
-    safeSum(scopes.scope1.data.sfax) +
-    safeSum(scopes.scope2.data.sfax) +
-    safeSum(scopes.scope3.data.sfax);
+    Number(safeSum(results.scope1.data.sfax)) +
+    Number(safeSum(results.scope2.data.sfax)) +
+    Number(safeSum(results.scope3.data.sfax));
 
   const totalSousse =
-    safeSum(scopes.scope1.data.sousse) +
-    safeSum(scopes.scope2.data.sousse) +
-    safeSum(scopes.scope3.data.sousse);
+    Number(safeSum(results.scope1.data.sousse)) +
+    Number(safeSum(results.scope2.data.sousse)) +
+    Number(safeSum(results.scope3.data.sousse));
 
   return (
     <div className=" flex flex-row items-center gap-5 mt-12">
@@ -56,13 +56,13 @@ export default function EmissionsTable() {
               Résultat du Scope 1
             </td>
             <td className="border-2 border-green-900 px-3 py-2 text-center">
-              {safeSum(scopes.scope1.data.tunis) || '0'}
+              {safeSum(results.scope1.data.tunis) || '0'}
             </td>
             <td className="border-2 border-green-900 px-3 py-2 text-center">
-              {safeSum(scopes.scope1.data.sfax) || '0'}
+              {safeSum(results.scope1.data.sfax) || '0'}
             </td>
             <td className="border-2 border-green-900 px-3 py-2 text-center">
-              {safeSum(scopes.scope1.data.sousse) || '0'}
+              {safeSum(results.scope1.data.sousse) || '0'}
             </td>
           </tr>
           <tr>
@@ -70,13 +70,13 @@ export default function EmissionsTable() {
               Résultat du Scope 2
             </td>
             <td className="border-2 border-green-900 px-3 py-2 text-center">
-              {safeSum(scopes.scope2.data.tunis) || '0'}
+              {safeSum(results.scope2.data.tunis) || '0'}
             </td>
             <td className="border-2 border-green-900 px-3 py-2 text-center">
-              {safeSum(scopes.scope2.data.sfax) || '0'}
+              {safeSum(results.scope2.data.sfax) || '0'}
             </td>
             <td className="border-2 border-green-900 px-3 py-2 text-center">
-              {safeSum(scopes.scope2.data.sousse) || '0'}
+              {safeSum(results.scope2.data.sousse) || '0'}
             </td>
           </tr>
           <tr>
@@ -84,13 +84,13 @@ export default function EmissionsTable() {
               Résultat du Scope 3
             </td>
             <td className="border-2 border-green-900 px-3 py-2 text-center">
-              {safeSum(scopes.scope3.data.tunis) || '0'}
+              {safeSum(results.scope3.data.tunis) || '0'}
             </td>
             <td className="border-2 border-green-900 px-3 py-2 text-center">
-              {safeSum(scopes.scope3.data.sfax) || '0'}
+              {safeSum(results.scope3.data.sfax) || '0'}
             </td>
             <td className="border-2 border-green-900 px-3 py-2 text-center">
-              {safeSum(scopes.scope3.data.sousse) || '0'}
+              {safeSum(results.scope3.data.sousse) || '0'}
             </td>
           </tr>
           <tr>

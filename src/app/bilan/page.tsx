@@ -10,10 +10,10 @@ import useData from "@/utils/data";
 import partitions from "@/utils/partitions";
 
 export default function ExportablePage() {
-    const { scopes } = useData();
+    const { scopes, results } = useData();
     const contentRef = useRef<HTMLDivElement>(null);
 
-    const { scope1, scope2, scope3 } = scopes || {
+    const { scope1, scope2, scope3 } = results || {
         scope1: { data: { tunis: [], sfax: [], sousse: [] }, isDone: false },
         scope2: { data: { tunis: [], sfax: [], sousse: [] }, isDone: false },
         scope3: { data: { tunis: [], sfax: [], sousse: [] }, isDone: false },
@@ -27,16 +27,19 @@ export default function ExportablePage() {
                 backgroundImage: "url('/images/6.jpg')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-            }}>
+            }} className="remove-bg">
             <Navbar />
 
             {/* PDF CONTENT START */}
             <div ref={contentRef} className='flex flex-col items-center bg-white/65 h-fit'>
                 <p className='text-center text-5xl font-bold m-6'>Bilan Carbone de la société Technique Inspection et Contrôle</p>
-                <p className='p-6 text-gray-800 text-lg'>Le bilan carbone global de l’entreprise TIC Tunisie permet de visualiser la répartition des émissions de gaz à effet de serre entre les trois catégories définies par la méthodologie internationale.
-Le Scope 1 représente les émissions directes, issues des sources que l’entreprise contrôle directement, telles que la combustion de carburants ou les gaz industriels.
-Le Scope 2 regroupe les émissions indirectes liées à l’énergie achetée, notamment la consommation d’électricité, de chaleur, de froid ou d’eau fournis par des tiers.
-Enfin, le Scope 3 couvre les autres émissions indirectes générées tout au long de la chaîne de valeur, en amont comme en aval : achats, transport, déplacements professionnels, gestion des déchets, etc.</p>
+                <p className='p-6 text-gray-800 text-lg'>
+                    Le bilan carbone global de l’entreprise TIC Tunisie permet de visualiser la répartition des émissions de gaz à effet de serre entre les trois catégories définies par la
+                    méthodologie internationale. Le Scope 1 représente les émissions directes, issues des sources que l’entreprise contrôle directement, telles que la combustion de carburants ou les
+                    gaz industriels. Le Scope 2 regroupe les émissions indirectes liées à l’énergie achetée, notamment la consommation d’électricité, de chaleur, de froid ou d’eau fournis par des
+                    tiers. Enfin, le Scope 3 couvre les autres émissions indirectes générées tout au long de la chaîne de valeur, en amont comme en aval : achats, transport, déplacements
+                    professionnels, gestion des déchets, etc.
+                </p>
 
                 <div className='flex gap-20 items-center font-bold'>
                     <div>
@@ -56,12 +59,11 @@ Enfin, le Scope 3 couvre les autres émissions indirectes générées tout au lo
                 <TableFinaleRes />
 
                 <div>
-                    <p className='text-center text-4xl p-3 mt-8 font-bold'>Résultat du bilan carbone de la société TIC</p>
                     <div className='flex flex-row items-center gap-5 mt-4'>
                         <div className='flex flex-col items-center gap-5'>
                             <p className='p-6 text-gray-800 w-150 text-center text-3xl'>
                                 L'émission totale est de{" "}
-                                {total(scope1.data.tunis) +
+                                {(total(scope1.data.tunis) +
                                     total(scope2.data.tunis) +
                                     total(scope3.data.tunis) +
                                     total(scope1.data.sfax) +
@@ -69,7 +71,7 @@ Enfin, le Scope 3 couvre les autres émissions indirectes générées tout au lo
                                     total(scope3.data.sfax) +
                                     total(scope1.data.sousse) +
                                     total(scope2.data.sousse) +
-                                    total(scope3.data.sousse)}{" "}
+                                    total(scope3.data.sousse))/1000}{" "}
                                 tCO₂e
                             </p>
                             <DonutChart
@@ -95,7 +97,7 @@ Enfin, le Scope 3 couvre les autres émissions indirectes générées tout au lo
                         />
                     </div>
                 </div>
-                <div className='flex justify-center p-8'>
+                <div className='flex justify-center p-8 no-print'>
                     <button
                         onClick={() => {
                             window.print();

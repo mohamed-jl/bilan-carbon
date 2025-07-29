@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Navbar() {
     return (
-        <nav className='bg-white w-full'>
+        <nav className='bg-white w-full no-print'>
             <div className="flex ">
                 <img className='w-auto h-18 mx-auto ml-16' src='/images/logo-tic.png' alt='Logo TIC' />
                 <div className='max-w-7xl mx-auto px-4 py-2 flex gap-8 items-center flex-1 ml-16'>

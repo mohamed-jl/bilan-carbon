@@ -4,7 +4,7 @@ import {
     scope3Factors,
 } from "@/constants/factors";
 
-export default function ResultRow({ data, scope }: { data: any; scope: number }) {
+export default function ResultRow({ data, scope, city }: { data: any; scope: number, city: string }) {
     const results =
         scope === 1
             ? data.map(
@@ -19,8 +19,9 @@ export default function ResultRow({ data, scope }: { data: any; scope: number })
               );
     return (
         <div className="flex flex-col items-centre gap-5 p-5">
+            <p className="text-gray-900 text-center">Quantité d'émission <br /> en KgCO₂e - {city}</p>
             {results.map((val: number, index: number) => (
-                <p className="text-gray-700" key={index}>{val}</p>
+                <p className="text-gray-700 text-center" key={index}>{val.toFixed(2)}</p>
             ))}
         </div>
     );

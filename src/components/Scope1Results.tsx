@@ -11,6 +11,7 @@ export default function Scope1Results({ data }: { data: any }) {
             <p className="text-3xl font-bold text-green-900">Resultat de calcul du Scope 1</p>
             <div className="flex items-center justify-center gap-5 p-5">
                 <div className="flex flex-col gap-5 p-5">
+                    <p className="h-12 flex items-center">Categorie </p>
                     <p className="">Emission carburant: essence</p>
                     <p className="">Emission carburant: gazoil</p>
                     <p className="">
@@ -29,9 +30,9 @@ export default function Scope1Results({ data }: { data: any }) {
                     </p>
                 </div>
 
-                <ResultRow data={data.tunis} scope={1} />
-                <ResultRow data={data.sfax} scope={1} />
-                <ResultRow data={data.sousse} scope={1} />
+                <ResultRow data={data.tunis} scope={1} city='Tunis'/>
+                <ResultRow data={data.sfax} scope={1} city='Sfax'/>
+                <ResultRow data={data.sousse} scope={1} city='Sousse'/>
             </div>
             <div className="flex">
                 <div className="flex flex-col items-center justify-center p-5">
@@ -42,13 +43,13 @@ export default function Scope1Results({ data }: { data: any }) {
                     </div>
                     <div className="flex">
                         <p className="p-5 border w-48 text-center">
-                            {total(data.tunis, 1)} /kgCO2e
+                            {total(data.tunis, 1)} kgCO2e
                         </p>
                         <p className="p-5 border w-48 text-center">
-                            {total(data.sousse, 1)} /kgCO2e
+                            {total(data.sousse, 1)} kgCO2e
                         </p>
                         <p className="p-5 border w-48 text-center">
-                            {total(data.sfax, 1)} /kgCO2e
+                            {total(data.sfax, 1)} kgCO2e
                         </p>
                     </div>
                 </div>
@@ -56,8 +57,8 @@ export default function Scope1Results({ data }: { data: any }) {
                     <DonutChart
                         fractions={partitions(
                             total(data.tunis, 1),
+                            total(data.sfax, 1),
                             total(data.sousse, 1),
-                            total(data.sfax, 1)
                         )}
                     />
                 </div>
