@@ -21,7 +21,6 @@ export default function ExportablePage() {
 
     const total = (arr: any) => (Array.isArray(arr) ? arr.reduce((acc: number, val: number) => acc + Number(val || 0), 0) : 0);
 
-    
     return (
         <div
             style={{
@@ -34,7 +33,10 @@ export default function ExportablePage() {
             {/* PDF CONTENT START */}
             <div ref={contentRef} className='flex flex-col items-center bg-white/65 h-fit'>
                 <p className='text-center text-5xl font-bold m-6'>Bilan Carbone de la société Technique Inspection et Contrôle</p>
-                <p className='p-6 text-gray-800 text-lg'>Le bilan carbone global de la société echnique Inspection et Contrôle permet de visualiser la répartition des émissions...</p>
+                <p className='p-6 text-gray-800 text-lg'>Le bilan carbone global de l’entreprise TIC Tunisie permet de visualiser la répartition des émissions de gaz à effet de serre entre les trois catégories définies par la méthodologie internationale.
+Le Scope 1 représente les émissions directes, issues des sources que l’entreprise contrôle directement, telles que la combustion de carburants ou les gaz industriels.
+Le Scope 2 regroupe les émissions indirectes liées à l’énergie achetée, notamment la consommation d’électricité, de chaleur, de froid ou d’eau fournis par des tiers.
+Enfin, le Scope 3 couvre les autres émissions indirectes générées tout au long de la chaîne de valeur, en amont comme en aval : achats, transport, déplacements professionnels, gestion des déchets, etc.</p>
 
                 <div className='flex gap-20 items-center font-bold'>
                     <div>
@@ -93,19 +95,19 @@ export default function ExportablePage() {
                         />
                     </div>
                 </div>
+                <div className='flex justify-center p-8'>
+                    <button
+                        onClick={() => {
+                            window.print();
+                        }}
+                        className='px-6 py-3 bg-green-700 text-white font-semibold rounded hover:bg-green-800 transition'>
+                        Exporter
+                    </button>
+                </div>
             </div>
             {/* PDF CONTENT END */}
 
             {/* Export Button */}
-            <div className='flex justify-center p-8'>
-                <button onClick={() => {
-                    
-                    window.print();
-                    
-                }} className='px-6 py-3 bg-green-700 text-white font-semibold rounded hover:bg-green-800 transition'>
-                    Exporter
-                </button>
-            </div>
         </div>
     );
 }
