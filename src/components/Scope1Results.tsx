@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Scope1Results({ data }: { data: any }) {
     return (
-        <div style={{ backgroundImage: "url('/images/3.jpg')", backgroundSize: 'cover' }}>
+        <div style={{ backgroundImage: "url('/images/3.jpg')", backgroundSize: 'cover' }} className="remove-bg">
         <div className="flex flex-col items-center justify-center w-full h-screen bg-white/60 font-bold">
             <p className="text-3xl font-bold text-green-900">Resultat de calcul du Scope 1</p>
             <div className="flex items-center justify-center gap-5 p-5">

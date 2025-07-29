@@ -27,18 +27,22 @@ export default function ExportablePage() {
                 backgroundImage: "url('/images/6.jpg')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-            }} className="remove-bg">
+            }}
+            className='remove-bg'>
             <Navbar />
 
             {/* PDF CONTENT START */}
             <div ref={contentRef} className='flex flex-col items-center bg-white/65 h-fit'>
-                <p className='text-center text-5xl font-bold m-6'>Bilan Carbone de la société Technique Inspection et Contrôle</p>
+                <p className='text-center text-4xl font-bold m-4'>Bilan Carbone de la société Technique Inspection et Contrôle</p>
                 <p className='p-6 text-gray-800 text-lg'>
                     Le bilan carbone global de l’entreprise TIC Tunisie permet de visualiser la répartition des émissions de gaz à effet de serre entre les trois catégories définies par la
                     méthodologie internationale. Le Scope 1 représente les émissions directes, issues des sources que l’entreprise contrôle directement, telles que la combustion de carburants ou les
                     gaz industriels. Le Scope 2 regroupe les émissions indirectes liées à l’énergie achetée, notamment la consommation d’électricité, de chaleur, de froid ou d’eau fournis par des
                     tiers. Enfin, le Scope 3 couvre les autres émissions indirectes générées tout au long de la chaîne de valeur, en amont comme en aval : achats, transport, déplacements
-                    professionnels, gestion des déchets, etc.
+                    professionnels, gestion des déchets, etc. <br />
+                    Comme l’illustrent les figures en donuts ci-après, cette répartition est présentée de manière détaillée pour chaque scope, ainsi que pour le bilan carbone global, et ce sur les
+                    trois sites de TIC Tunisie : Sfax, Sousse et Tunis. Ces visualisations permettent d’identifier clairement les postes les plus émetteurs selon les régions, et d’orienter les actions
+                    de réduction de manière ciblée et efficace.
                 </p>
 
                 <div className='flex gap-20 items-center font-bold'>
@@ -59,11 +63,11 @@ export default function ExportablePage() {
                 <TableFinaleRes />
 
                 <div>
-                    <div className='flex flex-row items-center gap-5 mt-4'>
+                    <div className='flex flex-row items-start gap-5 m-2 mt-6'>
                         <div className='flex flex-col items-center gap-5'>
-                            <p className='p-6 text-gray-800 w-150 text-center text-3xl'>
+                            <p className='p-1 text-gray-800 w-150 text-center text-3xl'>
                                 L'émission totale est de{" "}
-                                {(total(scope1.data.tunis) +
+                                {((total(scope1.data.tunis) +
                                     total(scope2.data.tunis) +
                                     total(scope3.data.tunis) +
                                     total(scope1.data.sfax) +
@@ -71,7 +75,8 @@ export default function ExportablePage() {
                                     total(scope3.data.sfax) +
                                     total(scope1.data.sousse) +
                                     total(scope2.data.sousse) +
-                                    total(scope3.data.sousse))/1000}{" "}
+                                    total(scope3.data.sousse)) /
+                                    1000).toFixed(4)}{" "}
                                 tCO₂e
                             </p>
                             <DonutChart

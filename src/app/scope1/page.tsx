@@ -60,7 +60,7 @@ export default function Scope1() {
                     }}
                 />
             ) : (
-                <div style={{ backgroundImage: "url('/images/2.jpg')", backgroundSize: "cover" }} >
+                <div style={{ backgroundImage: "url('/images/2.jpg')", backgroundSize: "cover" }} className="remove-bg">
                     <div className='w-full h-screen flex flex-col justify-start items-center gap-8 bg-white/50'>
                         <div className='w-full h-screen flex flex-col justify-start items-center gap-8'>
                             <Link href='/form' className='self-start p-2'>

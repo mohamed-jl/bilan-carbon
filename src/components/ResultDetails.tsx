@@ -13,13 +13,13 @@ export default function ({sum}:{sum: number}) {
     ]
 
     return (
-        <div className="flex w-120 h-100 m-12 ">
-            <div className="flex flex-col w-60 h-100">
+        <div className="flex w-120 h-100 m-2 ">
+            <div className="flex flex-col w-60 h-80">
                 <p className="h-1/3 text-center bg-green-500 text-white cursor-pointer flex items-center justify-center" onClick={()=>setSelected(0)}>Qc {'<'} 500</p>
                 <p className="h-1/3 text-center bg-lime-200 cursor-pointer flex items-center justify-center" onClick={()=>setSelected(1)}>500 {'≤'} Qc {'<'} 3000</p>
                 <p className="h-1/3 text-center bg-red-500 text-white cursor-pointer flex items-center justify-center" onClick={()=>setSelected(2)}>Qc {'≥'} 3000</p>
             </div>
-            <div className={` bg-${selected === 0 ? 'green-500 text-white' : selected === 1 ? 'lime-200 items-center' : 'red-500 text-white items-end'} w-full h-100 flex p-6 text-lg text-gray-800`}>
+            <div className={` bg-${selected === 0 ? 'green-500 text-white' : selected === 1 ? 'lime-200 items-center' : 'red-500 text-white items-end'} w-full h-80 flex p-6 text-lg text-gray-800`}>
                 {texts[selected]}
             </div>
         </div>

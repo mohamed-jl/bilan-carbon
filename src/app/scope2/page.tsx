@@ -82,7 +82,7 @@ export default function Scope2() {
                             sousse: sousseInputs,
                         }} />
                 </>):(
-                    <div style={{ backgroundImage: "url('/images/2.jpg')", backgroundSize: "cover" }} >
+                    <div style={{ backgroundImage: "url('/images/2.jpg')", backgroundSize: "cover" }} className="remove-bg">
                 <div className="w-full h-screen flex flex-col justify-start items-center gap-8 bg-white/50">
                     <Link href="/form" className="self-start p-2">
                         return to scopes

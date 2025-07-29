@@ -7,7 +7,7 @@ export default function EmissionsTable() {
 
   const safeSum = (arr: any[] | undefined) => {
     return Array.isArray(arr)
-      ? (arr.reduce((acc, val) => acc + Number(val || 0), 0) / 1000)
+      ? (arr.reduce((acc, val) => acc + Number(val || 0), 0) / 1000).toFixed(4)
       : 0;
   };
 
@@ -31,11 +31,11 @@ export default function EmissionsTable() {
     Number(safeSum(results.scope3.data.sousse));
 
   return (
-    <div className=" flex flex-row items-center gap-5 mt-12">
+    <div className=" flex flex-row items-center gap-5 m-2">
         <p className='text-lg p-6 text-gray-800 w-150'>Ce tableau présente la répartition des émissions de dioxyde de carbone par scope et par site. Il indique les quantités, exprimées en tonnes équivalent CO₂ (tCO₂e), générées par les différents sites de la société Technique inspection et contrôle : Tunis, Sfax et Sousse,  selon les trois scopes définis dans le cadre du bilan carbone.</p>
-      <table className="table-fixed border-collapse border-2 border-green-900 w-auto font-bold bg-white/70">
+      <table className="table-fixed border-collapse border-1 border-green-900 w-auto font-semibold bg-white/70">
         <thead>
-          <tr>
+          <tr >
             <th className="border-2 border-green-900 w-64 px-3 py-2 text-center">
               Catégories
             </th>
